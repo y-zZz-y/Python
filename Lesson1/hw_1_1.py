@@ -8,14 +8,14 @@ ageAsInt = int(age)
 while True:
 
     if ageLen == 4:
-        print(name, ', Ваш возраст', 2020-int(age), end='\n\n')
+        print(name, 'Ваш возраст', 2020-int(age), end='\n\n')
         break
 
     elif ageLen == 2:
         if int(age) > 20:
-            print(name, ', Ваш возраст', 2020 - (int(age)+1900), end='\n\n')
+            print(name, 'Ваш возраст', 2020 - (int(age)+1900), end='\n\n')
         else:
-            print(name, ', Ваш возраст', 20 - int(age), end='\n\n')
+            print(name, 'Ваш возраст', 20 - int(age), end='\n\n')
         break
 
     else:
