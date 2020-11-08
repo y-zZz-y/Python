@@ -67,7 +67,7 @@ while True:
     myList.append(myTuple)
 
 
-print('Собранные данные:', myList)
+print('Собранные данные:', myList, end='\n\n')
 
 myDic = {}
 x = 0
