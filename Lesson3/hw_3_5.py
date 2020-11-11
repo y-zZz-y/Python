@@ -14,6 +14,7 @@ summ = 0
 def my_func(ml):
     global cont
     summ = 0
+    ml = ml.split()
     for n in ml:
         if n == 'Q':
             cont = False
@@ -29,7 +30,7 @@ def my_func(ml):
         return summ
 
 while cont:
-    my_list = (input('Введите строку чисел, разделенных пробелом, для завершения работы введите Q: ')).split()
-    summ += my_func(my_list)
+    my_string = input('Введите строку чисел, разделенных пробелом, для завершения работы введите Q: ')
+    summ += my_func(my_string)
     print(f'Сумма чисел = {summ}')
 
