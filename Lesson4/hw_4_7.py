@@ -12,6 +12,4 @@ def fact(n):
         x += 1
         yield y
 
-
-
 print([el for el in fact(4)])
