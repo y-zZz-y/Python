@@ -19,6 +19,7 @@
 # Подсказка: использовать менеджеры контекста.
 
 from functools import reduce
+import json
 
 my_list = []
 firms = {}
@@ -39,3 +40,6 @@ my_list.append(firms)
 my_list.append({"average_profit":profit/len(firms)})
 
 print(my_list)
+
+with open("my_list.json", "w") as write_f:
+    json.dump(my_list, write_f)
