@@ -13,7 +13,7 @@
 # Задачу можно усложнить, реализовав проверку порядка режимов, и при его нарушении выводить соответствующее сообщение и завершать скрипт.
 #
 from time import sleep
-from itertools import cycle, count
+from itertools import cycle
 
 class TrafficLight:
     __color = 'red'
