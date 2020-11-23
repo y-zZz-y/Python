@@ -11,7 +11,7 @@
 #
 # Например: 20м * 5000м * 25кг * 5см = 12500 т
 
-class Road():
+class Road:
     _length = 0
     _width = 0
 
