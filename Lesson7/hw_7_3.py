@@ -27,3 +27,54 @@
 # Или, количество ячеек клетки равняется 15, количество ячеек в ряду — 5. Тогда метод make_order() вернет строку: *****\n*****\n*****.
 #
 # Подсказка: подробный список операторов для перегрузки доступен по ссылке.
+
+class Cell:
+    def __init__(self, cells=0):
+        self.cells = cells
+
+    def __add__(self, other):
+        try:
+            return Cell(self.cells + other.cells)
+        except TypeError:
+            raise ValueError(f'Invalid type: {type(other)}')
+
+    def __sub__(self, other):
+        try:
+            return Cell(self.cells - other.cells)
+        except TypeError:
+            raise ValueError(f'Invalid type: {type(other)}')
+
+    def __mul__(self, other):
+        try:
+            return Cell(self.cells * other.cells)
+        except TypeError:
+            raise ValueError(f'Invalid type: {type(other)}')
+
+    def __truediv__(self, other):
+        try:
+            return Cell(self.cells // other.cells)
+        except TypeError:
+            raise ValueError(f'Invalid type: {type(other)}')
+
+    def __str__(self):
+        return '*'*self.cells
+
+    def make_order(self, order=10):
+        res = ''
+        for i in range(self.cells//order):
+            res += '*'*order+'\n'
+        res += '*'*(self.cells%order)+'\n'
+        return res
+
+cell = Cell(20)
+cell2 = Cell(11)
+
+a = cell+cell2
+b = cell-cell2
+c = cell*cell2
+d = cell/cell2
+
+print(a.make_order())
+print(b.make_order())
+print(c.make_order(50))
+print(d.make_order())
