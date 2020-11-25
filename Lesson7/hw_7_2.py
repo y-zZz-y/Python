@@ -13,9 +13,10 @@
 # Проверить на практике полученные на этом уроке знания:
 # реализовать абстрактные классы для основных классов проекта, проверить на практике работу декоратора @property.
 
-from abc import abstractmethod
+from abc import abstractmethod, ABC
+from functools import reduce
 
-class MyClo:
+class MyClo(ABC):
     __name = 'Clothes'
     def __init__(self, name=__name):
         self.name = name
@@ -23,6 +24,10 @@ class MyClo:
     @abstractmethod
     def consumption(self):
         pass
+
+    @staticmethod
+    def get_consumption(get_list:list):
+        return reduce(lambda a,b: a+b, get_list)
 
 
 class MyCoat(MyClo):
@@ -57,4 +62,4 @@ my_costume = MyCostume('Costume', 6)
 my_costume2 = MyCostume('Costume 10', 10)
 print(my_costume)
 
-print(f'Tissue consumption: {my_coat.consumption+my_coat2.consumption+my_costume.consumption+my_costume2.consumption}')
+print(f'Tissue consumption: {MyClo.get_consumption([my_coat.consumption,my_coat2.consumption,my_costume.consumption,my_costume2.consumption])}')
