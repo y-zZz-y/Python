@@ -27,7 +27,7 @@ class MyClo(ABC):
 
     @staticmethod
     def get_consumption(get_list:list):
-        return reduce(lambda a,b: a+b, get_list)
+        return reduce(lambda a,b: a+b, [el.consumption for el in get_list])
 
 
 class MyCoat(MyClo):
@@ -62,4 +62,4 @@ my_costume = MyCostume('Costume', 6)
 my_costume2 = MyCostume('Costume 10', 10)
 print(my_costume)
 
-print(f'Tissue consumption: {MyClo.get_consumption([my_coat.consumption,my_coat2.consumption,my_costume.consumption,my_costume2.consumption])}')
+print(f'Tissue consumption: {MyClo.get_consumption([my_coat,my_coat2,my_costume,my_costume2])}')
