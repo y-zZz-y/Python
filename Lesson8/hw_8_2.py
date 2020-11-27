@@ -11,7 +11,11 @@ def div(a,b):
         raise MyException("Division by zero!")
     return a/b
 
-try:
-    div(1,0)
-except Exception as err:
-    print(type(err), err)
+if __name__ == '__main__':
+    a = int(input('Input dividend: '))
+    b = int(input('Input divisor: '))
+
+    try:
+        print(div(a,b))
+    except Exception as err:
+        print(type(err), err)
