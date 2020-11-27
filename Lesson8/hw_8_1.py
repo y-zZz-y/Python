@@ -25,22 +25,21 @@ class MyDate:
         leap = ((year % 4 == 0) and (year % 100 > 0)) or (year % 400 == 0)
 
         if (day not in range(1,32)):
-            raise ValueError(f'Day {day} out of range!')
+            return f'Day {day} out of range!'
         elif (month in [4,6,9,11] and day == 31):
-            raise ValueError(f'Day {day} out of range!')
+            return f'Day {day} out of range!'
         elif (month == 2 and day > 29 and leap) or (month == 2 and day > 28 and not leap):
-            raise ValueError(f'Day {day} out of range!')
+            return f'Day {day} out of range!'
 
         if month not in range(1,13):
-            raise ValueError(f'Month {month} out of range!')
+            return f'Month {month} out of range!'
 
         return f'Date {day}-{month}-{year} is valid'
 
     @property
     def date_to_number(self):
-        _ = self.date_str.split(sep='-')
-        _ = list(map(int,_))
-        return {"DD":_[0],"MM":_[1],"YYYY":_[2]}
+        tmp = list(map(int,self.date_str.split(sep='-')))
+        return {"DD":tmp[0],"MM":tmp[1],"YYYY":tmp[2]}
 
 my_date = MyDate('12-12-12')
 
